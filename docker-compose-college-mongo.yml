@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  one-college:
+    image: 'one-college:latest'
+    container_name: one-college
+    network_mode: host
+    environment:
+      - LOCAL_MONGO_DB=COLLEGE
+      - ONE-COLLEGE_CORE_APPLICATION_PORTSERVER_PORT=8082
+    depends_on:
+      - mongodb
+    ports:
+      - 8082:8082
+
+  mongodb:
+    image: mongo:5.0.3
+    container_name: mongodb
+    ports:
+      - 27019:27017
+    environment:
+      - MONGO_INITDB_DATABASE=COLLEGE
