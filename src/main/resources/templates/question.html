@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> College Management System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/college.css">
+    <link rel="stylesheet" href="css/ApplicationStyleSheet.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+
+</head>
+<body>
+<div>
+
+    <div>
+        <div th:replace="topmenu"></div>
+        <table style="width: 100%;" border="0" cellpadding="6">
+            <colgroup>
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 65%;">
+                <col span="1" style="width: 10%;">
+
+            </colgroup>
+            <tbody id="tboy">
+            <tr>
+                <td><span style="padding:15px">Chapper</span></td>
+                <td></td>
+                <td>
+                    <select id="main-exam-question-category">
+                        <option value="Safety">Safety</option>
+                        <option value="Internal">Internal</option>
+                        <option value="Acupuncture">Acupuncture</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><span style="padding:15px">Type</span></td>
+                <td></td>
+                <td>
+                    <select id="main-exam-question-type">
+                        <option value="SG">Single</option>
+                        <option value="ML">Multiple</option>
+                        <option value="YN">Yes/No</option>
+                        <option value="ST">Sorting</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><span style="padding:15px">Difficulty</span></td>
+                <td></td>
+                <td>
+                    <select id="main-exam-question-difficulty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><span style="padding:15px">Question Group</span></td>
+                <td></td>
+                <td>
+                    <input type="text" id="question-group" value="0">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><span style="padding:15px">Question Title</span></td>
+                <td></td>
+                <td>
+                    <textarea id="questiontitle" rows="5" cols="20" style="width:600px;" class="ui-widget ui-state-default ui-corner-all" ></textarea>
+                </td>
+                <td></td>
+            </tr>
+            <tr class="opt">
+                <td><span style="padding:15px">Question Option</span></td>
+                <td>
+                    <input type="checkbox" id="answr1">
+                </td>
+                <td>
+                    <textarea id="o1" rows="5" cols="20" style="width:600px;" class="ui-widget ui-state-default ui-corner-all" ></textarea>
+                </td>
+                <td></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <div><button id="addoptions" class="ui-button ui-widget ui-corner-all">Add Option</button></div>
+        <div style="margin-top:15px"><button id="review" class="ui-button ui-widget ui-corner-all">Submit for Review</button></div>
+        <div id="review-container" style="margin-top:15px;background-color: rgba(31, 80, 109, 0.05);">
+
+            <table style="width: 100%;" border="0" cellpadding="6">
+                <colgroup>
+                    <col span="1" style="width: 3%;">
+                    <col span="1" style="width: 3%;">
+                    <col span="1" style="width: 94%;">
+
+
+                </colgroup>
+                <tbody id="treview">
+                    <tr>
+                        <td colspan="3">chapter<span id="chapt" style="padding:15px"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">difficulty level:<span id="dfct" style="padding:15px"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">group id:<span id="gp" style="padding:15px"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span id="qstn" style="padding:15px"></span></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div><button id="submitquestion" class="ui-button ui-widget ui-corner-all">Submit Question</button></div>
+        </div>
+        <input type="hidden" id="hddifclt" name="hddifclt" value=""></input>
+        <input type="hidden" id="hdtype" name="hdtype"  value=""></input>
+        <input type="hidden" id="hdchapter" name="hdchapter"  value=""></input>
+    </div>
+</div>
+<div id="warning-dialog" title="Warning">
+    <p id="warning-text"></p>
+</div>
+
+<div id="success-dialog" title="Success">
+    <p id="success-text"></p>
+</div>
+<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/ajax_functions.js?2"></script>
+
+<div th:replace="footer"></div>
+</body>
+</html>

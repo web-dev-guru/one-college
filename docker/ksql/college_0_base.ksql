@@ -1,0 +1,12 @@
+ CREATE STREAM STRM_EVENT_FIXTURES_RAW \
+ ( id VARCHAR, \
+ type VARCHAR, \
+ msg_id VARCHAR, \
+ msg_time BIGINT, \
+ external_id VARCHAR ) \
+ WITH (KAFKA_TOPIC='EVENT_FIXTURES_RAW', \
+ PARTITIONS=1, \
+ VALUE_FORMAT='JSON', \
+  KEY='id');
+
+exit;

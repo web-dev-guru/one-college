@@ -1,0 +1,79 @@
+docker-build:
+	mvn install -f "../pom.xml" \
+		-Dmaven.test.skip=true && \
+	docker build \
+		-f ../Dockerfile \
+		-t antenna-core ../
+
+docker-prune:
+	docker system prune -f && \
+	docker volume prune -f && \
+	docker network create proxy
+
+kafka:
+	docker-compose \
+		-f ../docker-compose-kafka-only.yml \
+		up -d
+
+kafka-clean:
+	docker-compose \
+		-f ../docker-compose-kafka-only.yml \
+		up -d \
+		--force-recreate
+
+kafka-down:
+	docker-compose \
+		-f ../docker-compose-kafka-only.yml \
+		down
+
+kafka-all: kafka-down docker-prune kafka antenna-kafka-setup
+
+antenna-kafka-setup:
+	MARKET_RETENTION="86400000" MARKET_DELETE_RETENTION="86400000" ../ansible/playbooks/files/topics/config-topics.sh
+	../ansible/playbooks/files/ksql/run-ksql-script.sh
+	POSTGRES_URL="jdbc:postgresql://host.docker.internal:5432/epadev?stringtype=unspecified" POSTGRES_USER="antenna" POSTGRES_PASSWORD="antenna_epadev" KAFKA_SCHEMA_REGISTRY_URL="http://schema-registry:8081" ../ansible/playbooks/files/connectors/setup-connectors.sh
+	POSTGRES_URL="jdbc:postgresql://host.docker.internal:5432/epadev?stringtype=unspecified" POSTGRES_USER="antenna" POSTGRES_PASSWORD="antenna_epadev" KAFKA_SCHEMA_REGISTRY_URL="http://schema-registry:8081" ../ansible/playbooks/files/connectors/setup-sink-connectors.sh
+
+antenna:
+	docker-compose \
+		-f ../docker-compose.yml \
+		-f ../docker-compose-dev.yml \
+		--project-directory ../ \
+		up -d
+
+antenna-clean: docker-build
+	docker-compose \
+		-f ../docker-compose.yml \
+		-f ../docker-compose-dev.yml \
+		--project-directory ../ \
+		up -d \
+		--force-recreate
+
+antenna-down:
+	docker-compose \
+		-f ../docker-compose.yml \
+		-f ../docker-compose-dev.yml \
+		--project-directory ../ \
+		down
+
+install-sh:
+	sh ../ansible/playbooks/files/topics/config-topics.sh && \
+	sh ../ansible/playbooks/files/ksql/run-ksql-script.sh && \
+	sh ../ansible/playbooks/files/connectors/setup-connectors.sh && \
+	sh ../ansible/playbooks/files/connectors/setup-sink-connectors.sh
+
+install-topics:
+	../ansible/playbooks/files/topics/config-topics.sh
+
+install-streams:
+	../ansible/playbooks/files/ksql/run-ksql-script.sh
+
+install-connectors:
+	../ansible/playbooks/files/connectors/setup-connectors.sh
+
+install-sink-connectors:
+	../ansible/playbooks/files/connectors/setup-sink-connectors.sh
+
+install-connector:
+	sh ../ansible/playbooks/files/connectors/setup-connectors.sh \
+    sh ../ansible/playbooks/files/connectors/setup-sink-connectors.sh

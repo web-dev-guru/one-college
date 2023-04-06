@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> College Management System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/college.css">
+    <link rel="stylesheet" href="css/ApplicationStyleSheet.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+
+</head>
+<body>
+<div th:replace="topbanner"></div>
+<!-- content start -->
+
+    <div id="application_container">
+        <div class="main-container">
+            <div th:replace="topmenu"></div>
+
+
+
+            <div class="container_inner">
+                <div class="login_new1" id="operation-container">
+                    <table cellpadding="2" cellspacing="2" width="100%">
+                        <tbody><tr>
+                            <td>
+                                <img src="./images/ImghomeUser.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%" align="center" valign="top">
+                                <div class="login_new1">
+                                    <table width="100%" cellpadding="2" cellspacing="4" align="left">
+                                        <colgroup>
+                                            <col span="1" style="width: 30%;">
+                                            <col span="1" style="width: 30%;">
+                                            <col span="1" style="width: 40%;">
+
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <td valign="top" >
+                                                <span style="margin-right:20px">First Name:</span> <input type="text" id="firstname" value="">
+
+                                            </td>
+                                            <td valign="top" >
+                                                <span style="margin-right:20px">Last Name:</span> <input type="text" id="lastname" value="">
+                                            </td>
+                                            <td valign="top" >
+                                                <button id="searchuser" class="ui-button ui-widget ui-corner-all">Search</button>
+
+                                            </td>
+                                        </tr>
+                                        </tbody></table>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <div class="login_new1" >
+                    <table id="user_table" class="display">
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div th:replace="footer"></div>
+
+
+    <div id="userupdate-warning-dialog" title="Warning">
+        <p id="userupdate-warning-text"></p>
+    </div>
+
+    <div id="userupdate-success-dialog" title="Success">
+        <p id="userupdate-success-text"></p>
+    </div>
+<script type="text/javascript" src="js/user_datatables.js?2"></script>
+</body>
+</html>

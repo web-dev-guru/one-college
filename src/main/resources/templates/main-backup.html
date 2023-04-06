@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> College Management System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/college.css">
+    <link rel="stylesheet" href="css/ApplicationStyleSheet.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+
+</head>
+<body>
+    <div class="top">
+        <table cellpadding="0" cellspacing="0" width="100%" align="center">
+            <tbody><tr>
+                <td width="5%">&nbsp;</td>
+                <td valign="top" class="welcome_text_block" width="90%">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tbody><tr>
+                        <td class="logo" valign="top" width="300" height="28">&nbsp;</td>
+                        <td width="451" style="text-align: left; color: #FFFFFF;" valign="top" align="left">
+                            <span id="ctl00_lblWelcome" class="lblHeader">Welcome:</span>&nbsp;<span id="ctl00_lblUser" class="lblHeader"> <span th:text="${user.email}"></span>[ Student ]</span>
+                        </td>
+                        <td width="3" style="text-align: left; color: #FFFFFF;" align="left">&nbsp;</td>
+                        <td width="431" style="text-align: right; color: #FFFFFF;" valign="top" align="right">
+                            <div id="ctl00_upInfo">
+                                <a id="ctl00_lbtnTimeZone" class="lblHeader" href="javascript:__doPostBack(&#39;ctl00$lbtnTimeZone&#39;,&#39;&#39;)" style="color:White;">Eastern Time :<span th:text="${user.displayLoginDate}"></span> </a>&nbsp;&nbsp;
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="midlle" colspan="2" align="left">
+                            <img src="./images/ImgClientlogo1.png" alt="Client" border="0"></td>
+                        <td style="text-align: right; color: #FFFFFF;" valign="top" align="right" colspan="2">
+                            <a href="#">
+                                <img src="./images/ImgProductLogo1.png" alt="Examity" border="0"></a></td>
+                    </tr>
+                    </tbody></table>
+                </td>
+                <td width="5%">&nbsp;</td>
+            </tr>
+            </tbody></table>
+    </div>
+<!-- content start -->
+
+
+    <div id="application_container">
+        <div class="main-container">
+            <div th:replace="topmenu"></div>
+
+
+
+            <div class="container_inner">
+                <div class="login_new1">
+
+
+                    <table cellpadding="2" cellspacing="2" width="100%">
+                        <tbody><tr>
+                            <td>
+                                <img src="./images/Imghome.png">
+
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%" align="center" valign="top">
+                                <div class="login_new1">
+                                    <table width="100%" cellpadding="2" cellspacing="4" align="left">
+                                        <tbody><tr>
+                                            <td valign="top" width="33%">
+
+                                            </td>
+                                            <td valign="top" width="34%">
+                                                <table width="100%" cellpadding="0" cellspacing="0" class="td_bg">
+                                                    <tbody><tr class="td_header">
+                                                        <td colspan="4" align="left">
+                                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                                <tbody><tr>
+                                                                    <td align="left">
+                                                                        <a href="">
+                                                                            <img id="ctl00_StudentContent_Image4" src="./images/ImgStartExam.png" style="border-width:0px;"></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" class="boreder_home">
+                                                                        <div style="padding: 10px;">
+                                                                            <table cellpadding="2" cellspacing="2">
+                                                                                <tbody><tr>
+                                                                                    <td>
+                                                                                        <a href="https://prod.examity.com/Captus/Student/StartAnExam.aspx">
+                                                                                            <img src="./images/ImgStartExam_DB.png" alt="No image"></a>
+                                                                                    </td>
+                                                                                    <td valign="middle">
+                                                                                        Begin scheduled exam.
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody></table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" width="33%">
+                                                <table width="100%" cellpadding="0" cellspacing="0" class="td_bg">
+                                                    <tbody><tr class="td_header">
+                                                        <td colspan="4" align="left">
+                                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                                <tbody><tr>
+                                                                    <td align="left">
+                                                                        <a href="https://prod.examity.com/Captus/Student/MyProfile.aspx">
+                                                                            <img id="ctl00_StudentContent_Image6" src="./images/ImgMyProfile.png" style="border-width:0px;"></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" class="boreder_home">
+                                                                        <div style="padding: 10px;">
+                                                                            <table cellpadding="2" cellspacing="2" width="100%">
+                                                                                <tbody><tr>
+                                                                                    <td align="center" valign="top">
+                                                                                        <a href="">
+
+                                                                                            <img src="" id="ctl00_StudentContent_img" width="105" height="71" alt="No image"></a>
+                                                                                    </td>
+                                                                                    <td align="left">
+
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody></table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+                                            </td>
+                                            <td width="34%" valign="top">
+                                                <table width="100%" cellpadding="0" cellspacing="0" class="td_bg">
+                                                    <tbody><tr class="td_header">
+                                                        <td colspan="4" align="left">
+                                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                                <tbody><tr>
+                                                                    <td align="left">
+                                                                        <a href="https://prod.examity.com/Captus/Student/ScheduleAnExam.aspx">
+                                                                            <img id="ctl00_StudentContent_Image2" src="./images/ImgScheduleexam.png" style="border-width:0px;"></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" class="boreder_home">
+                                                                        <div style="padding: 10px;">
+                                                                            <table cellpadding="2" cellspacing="2">
+                                                                                <tbody><tr>
+                                                                                    <td>
+                                                                                        <a href="https://prod.examity.com/Captus/Student/ScheduleAnExam.aspx">
+                                                                                            <img src="./images/ImgScheduleExam_DB.png" alt="No image"></a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        Make appointment.
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody></table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+                                            </td>
+                                            <td width="33%" valign="top">
+                                                <table width="100%" cellpadding="0" cellspacing="0" class="td_bg">
+                                                    <tbody><tr class="td_header">
+                                                        <td colspan="4" align="left">
+                                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                                <tbody><tr>
+                                                                    <td align="left">
+                                                                        <a href="https://prod.examity.com/Captus/Student/MyExams.aspx">
+                                                                            <img id="ctl00_StudentContent_Image1" src="./images/RescheduleCancel.png" style="border-width:0px;"></a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" class="boreder_home">
+                                                                        <div style="padding: 10px;">
+                                                                            <table cellpadding="2" cellspacing="2">
+                                                                                <tbody><tr>
+                                                                                    <td>
+                                                                                        <a href="https://prod.examity.com/Captus/Student/MyExams.aspx">
+                                                                                            <img src="./images/ImgMyExam_DB.png" alt="No image"></a>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        Change appointment.
+                                                                                    </td>
+                                                                                </tr>
+                                                                                </tbody></table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody></table>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody></table>
+                                            </td>
+                                        </tr>
+                                        </tbody></table>
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody></table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div th:replace="footer"></div>
+    <script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/ajax_functions.js?2"></script>
+
+</body>
+</html>

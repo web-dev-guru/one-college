@@ -1,0 +1,62 @@
+<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/ajax_functions.js?1"></script>
+<script>
+function loadUserManagement() {
+   $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "/college/userhome",
+            data: "",
+            dataType: 'html',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+               $('#operation-container').html(data);
+            },
+            error: function (e) {
+                console.log("error");
+            }
+        });
+}
+</script>
+
+<div id="master-page">
+<div class="main_menu">
+    <ul>
+        <li>
+            <a id="ctl00_lnkHome" tabindex="1" class="main_menu_active" href="/college/main">Dashboard</a></li>
+        <li>
+            <a id="ctl00_lnkStart" tabindex="2" href="/college/userhome">User Management</a></li>
+        <li>
+            <a id="ctl00_lnkProfile" tabindex="3" href="/college/mediaplayer">Video</a></li>
+        <li>
+            <a id="ctl00_lnkSchedule" tabindex="4" href="/college/exam">Exam Tools</a></li>
+
+        <li>
+            <a id="ctl00_lnlLogout" tabindex="7" href="/college/logout">Logout</a>
+        </li>
+        <div id="Div1" style="float: right; width: 360px; color: #fff; font-size: 12px;">
+            <div class="ulCss" style="float: left;">
+
+            </div>
+
+
+
+
+            <div class="livechatpannel" style="float: left; cursor: pointer">
+                <u class="ulCss">
+                </u>&nbsp;&nbsp;|
+
+            </div>
+            <div id="Div2" style="float: left; width: 100px;">
+                <a href="mailto:support@examity.com" style="color: #fff"><u> <span id="ctl00_lblEmailSupport" tabindex="9">Email Support</span></u></a>&nbsp;|
+            </div>
+            <div id="Div3" style="float: left; width: 180px">
+                <span id="ctl00_Label1" tabindex="10">Phone Support: 416-COLLEGE</span>
+            </div>
+        </div></ul>
+</div>
+</div>

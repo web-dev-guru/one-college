@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> College Management System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/college.css">
+    <link rel="stylesheet" href="css/ApplicationStyleSheet.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+
+</head>
+<body>
+<div th:replace="topbannerempty"></div>
+<!-- content start -->
+
+
+<div id="application_container">
+    <div class="main-container">
+        <div class="main_menu"></div>
+
+
+
+        <div class="container_inner">
+            <table cellpadding="2" cellspacing="2" width="100%">
+                <tbody><tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center">&nbsp;</td>
+                </tr>
+                <tr>
+
+                    <td id="tdSession" align="center" class="Logout_text">
+                        <span id="lblSession"><span class="Thankyou">Sorry, your session has expired.</span></span>
+                        <br>
+                        <br>
+
+
+                        <span id="lnkSession" class="Logout_text">You are successfully logged out of College.</span>
+                    </td>
+
+
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="clear">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div th:replace="footer"></div>
+<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script type="text/javascript" src="js/ajax_functions.js?2"></script>
+
+</body>
+</html>
